@@ -3,12 +3,15 @@
 #include "Speaker.h"
 #include "PLL.h"
 #include "hc-sr04.h"
+#include <stdint.h>
+
 #define TONE_DURATION 8
 #define NUM_VALS 64
 
 unsigned long left;
 unsigned long right;
 unsigned long front;
+
 
 struct Note{
 	
@@ -18,7 +21,7 @@ struct Note{
 
 typedef const struct Note NTyp;
 // basic functions defined at end of startup.s
-const unsigned long tonetab[] =
+const unsigned long tonetab[29] =
 // C, D, E, F, G, A, B
 // 1, 2, 3, 4, 5, 6, 7
 
@@ -27,6 +30,21 @@ const unsigned long tonetab[] =
 	11945,10641,9480,8948,7972,7102,6328,
 	11345,10641,9480,8948,7972,7102,6328};
 
+	
+
+	
+
+
+// DAC_Out(unsigned long data) - Outputs to DAC
+// Input: 4-bit data, 0 to 15
+// Output: none
+void D_Out(unsigned long data)
+{
+	GPIO_PORTD_DATA_R = data;
+}
+
+	
+	
 void Speaker_Init(void) { volatile unsigned long delay;
 	
 	SYSCTL_RCGC2_R |= 0x08;
@@ -59,7 +77,7 @@ void OutSoundMiddle(uint32_t distance) {
 	GPIO_PORTD_DATA_R &= ~(0x03);
   if(distance < 50) { 
     GPIO_PORTD_DATA_R |= (0x03);// open port D0-1
-		
+		Sound_Tone(9542);
 		// display sound B
 	  delay_Microsecond(2000000);// delay 2 second
 	
@@ -67,7 +85,7 @@ void OutSoundMiddle(uint32_t distance) {
 	}
   else if (distance < 100) {
    GPIO_PORTD_DATA_R |= (0x03);// open port D0-1
-		
+		Sound_Tone(9542);
 		// display sound A
 	  delay_Microsecond(2000000);// delay 2 second
 	
@@ -75,7 +93,7 @@ void OutSoundMiddle(uint32_t distance) {
 	}
 	else if (distance < 150) {
 		GPIO_PORTD_DATA_R |= (0x03);// open port D0-1
-		
+		Sound_Tone(9542);
 		// display sound G 
 	  delay_Microsecond(2000000);// delay 2 second
 	
@@ -83,7 +101,7 @@ void OutSoundMiddle(uint32_t distance) {
 	}
 	else if (distance < 200) {
 		GPIO_PORTD_DATA_R |= (0x03);// open port D0-1
-		
+		Sound_Tone(9542);
 		// display sound F
 	  delay_Microsecond(2000000);// delay 2 second
 	
@@ -91,7 +109,7 @@ void OutSoundMiddle(uint32_t distance) {
 	}
 	else if (distance < 250) {
 		GPIO_PORTD_DATA_R |= (0x03);// open port D0-1
-		
+		Sound_Tone(9542);
 		// display sound E
 	  delay_Microsecond(2000000);// delay 2 second
 	
@@ -99,7 +117,7 @@ void OutSoundMiddle(uint32_t distance) {
 	}
 	else if (distance < 300) {
 		GPIO_PORTD_DATA_R |= (0x03);// open port D0-1
-		
+		Sound_Tone(9542);
 		// display sound D
 	  delay_Microsecond(2000000);// delay 2 second
 	
@@ -107,7 +125,7 @@ void OutSoundMiddle(uint32_t distance) {
 	}
 	else if (distance < 400) {
 		GPIO_PORTD_DATA_R |= (0x03);// open port D0-1
-		
+		Sound_Tone(9542);
 		// display sound C
 		
 	  delay_Microsecond(2000000);// delay 2 second
@@ -122,7 +140,7 @@ void OutSoundMiddle(uint32_t distance) {
 void OutSoundLeft(uint32_t distance) {
 	GPIO_PORTD_DATA_R &= ~(0x03);
   if(distance < 50) {
-	GPIO_PORTD_DATA_R |= (0x01);// open port D0
+		GPIO_PORTD_DATA_R |= (0x01);// open port D0
 		
 		// display sound B
 	  delay_Microsecond(2000000);// delay 2 second
@@ -132,7 +150,7 @@ void OutSoundLeft(uint32_t distance) {
 	}
   else if (distance < 100) {
    
-			GPIO_PORTD_DATA_R |= (0x01);// open port D0
+		GPIO_PORTD_DATA_R |= (0x01);// open port D0
 		
 		// port D0 earphones A
 	  delay_Microsecond(2000000);// delay 2 second
@@ -141,7 +159,7 @@ void OutSoundLeft(uint32_t distance) {
 	}
 	else if (distance < 150) {
 		
-				GPIO_PORTD_DATA_R |= (0x01);// open port D0
+		GPIO_PORTD_DATA_R |= (0x01);// open port D0
 		
 		// port D0 earphones G
 	  delay_Microsecond(2000000);// delay 2 second
@@ -150,7 +168,7 @@ void OutSoundLeft(uint32_t distance) {
 	}
 	else if (distance < 200) {
 		
-				GPIO_PORTD_DATA_R |= (0x01);// open port D0
+		GPIO_PORTD_DATA_R |= (0x01);// open port D0
 		
 		// port D0 earphones F
 	  delay_Microsecond(2000000);// delay 2 second

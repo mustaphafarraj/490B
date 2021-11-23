@@ -13,7 +13,7 @@ const unsigned char SineWave64[64] = {32,35,38,41,44,47,49,52,54,56,58,59,61,
 int sound_enable;
 
 void Sound_Init(void){
-	Speakers();
+	Speaker_Init();
 	sound_enable=0;
 	Index = 0;
 	NVIC_ST_CTRL_R = 0;           // disable SysTick during setup

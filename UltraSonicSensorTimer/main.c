@@ -41,32 +41,35 @@ int main(void){
 		dist = measureD(0);
 		middle = dist;
 		OutSignal(dist);
-		OutSoundMiddle(middle);
+		
 	  sprintf(distStr0, "%d middle cm0     ", middle);
 		UART_OutString(distStr0);
+		//OutSoundMiddle(middle);
 
-		delay_Microsecond(3000000);
+	//	delay_Microsecond(3000000);
 
 		
 		dist = measureD(1);
 		left = dist;
 	  OutSignal(dist);
-		OutSoundLeft(left);
+	//	OutSoundLeft(left);
 	  sprintf(distStr1, "%d left cm1     ", left);
 	  UART_OutString(distStr1);
-		delay_Microsecond(3000000);
+	//	delay_Microsecond(3000000);
 		
 		dist = measureD(2);
 		right = dist;
-		OutSoundRight(right);
+	//	OutSoundRight(right);
 		OutSignal(dist);
 	  sprintf(distStr2, "%d right cm2     ", right);
 		
 	  UART_OutString(distStr2); 
+	//	OutSoundRight(right);
+	
 		UART0_OutChar(CR);
 		UART_OutString("\n");
 		
-		//delay_Microsecond(10000);
-		delay_Microsecond(3000000);
+		delay_Microsecond(10000);
+	//	delay_Microsecond(3000000);
   }
 }

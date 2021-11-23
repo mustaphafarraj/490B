@@ -11,3 +11,7 @@ void Speakers(void);
 void OutSoundMiddle(uint32_t value);
 void OutSoundLeft(uint32_t value);
 void OutSoundRight(uint32_t value);
+void Speaker_Init(void);
+
+void D_Init(void);
+void D_Out(unsigned long data);
