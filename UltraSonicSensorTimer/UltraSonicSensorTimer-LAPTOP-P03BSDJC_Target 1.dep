@@ -1,0 +1,20 @@
+Dependencies for Project 'UltraSonicSensorTimer-LAPTOP-P03BSDJC', Target 'Target 1': (DO NOT MODIFY !)
+CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
+F (.\startup.s)(0x6174738E)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123--pd "__UVISION_VERSION SETA 533"--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\tm4c123gh6pm.h)(0x6174738E)()
+F (.\main.c)(0x619C171A)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="533" -DTM4C1231C3PM-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+I (hc-sr04.h)(0x6174738E)
+I (tm4c123gh6pm.h)(0x6174738E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x608C779A)
+I (UART.h)(0x6174738E)
+F (.\hc-sr04.h)(0x6174738E)()
+F (.\hc-sr04.c)(0x6179B9FE)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="533" -DTM4C1231C3PM-o .\hc-sr04.o --omf_browse .\hc-sr04.crf --depend .\hc-sr04.d)
+I (hc-sr04.h)(0x6174738E)
+I (tm4c123gh6pm.h)(0x6174738E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x608C779A)
+I (UART.h)(0x6174738E)
+F (.\UART.h)(0x6174738E)()
+F (.\UART.c)(0x6174738E)(-c --cpu Cortex-M4 -D__EVAL -g -O0 --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\TI\TM4C123-D__UVISION_VERSION="533" -DTM4C1231C3PM-o .\uart.o --omf_browse .\uart.crf --depend .\uart.d)
+I (UART.h)(0x6174738E)
+I (tm4c123gh6pm.h)(0x6174738E)
+F (.\PLL.h)(0x6174738E)()
